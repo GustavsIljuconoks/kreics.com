@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+@layer components {
+    .nav-link {
+        @apply font-bold text-[20px] text-orange;
+    }
+
+    .page-collection {
+        @apply text-black-70 font-semibold ml-2;
+    }
+
+    /* .project-cover {
+        @apply block relative w-full md:w-1/2 ;
+    } */
+
+    .cover-container {
+        @apply bg-black-10 mb-2 relative md:mt-0;
+    }
+
+    .details-wrap {
+        @apply py-[5%] h-full w-11/12 left-1/2 -translate-x-1/2 opacity-0 absolute top-0 transition ease-in;
+    }
+
+    .details {
+        @apply relative h-full w-full bg-white-ish flex items-center;
+    }
+
+    .project-cover:hover .details-wrap {
+        @apply opacity-100;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0}
+        to {opacity: 1}
+    }
+      
+    .fadeInAnimated {
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+    }
+}
+
+#subnav {
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    transition: height 1ms;
+}
+
+#subnav.show {
+    height: 100%;
+}
+
+.cover-img {
+    height: calc(100% + 2px);
+    object-fit: cover;
+    width: calc(100% + 2px);
+}
+
+.image-collection-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    margin-top: -3.3rem;
+}
+
+@media only screen and (min-width: 1024px) {
+    .project-type {
+        writing-mode: vertical-rl;
+    }
+}

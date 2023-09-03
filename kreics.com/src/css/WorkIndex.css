@@ -1,0 +1,15 @@
+#work-sidebar {
+    padding: 5rem 2rem 0;
+}
+
+@media only screen and (min-width: 768px) {
+    #work-sidebar {
+        padding: 5rem 4rem 0;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    #work-sidebar {
+        padding: 0;
+    }
+}
