@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const Image = (props) => {
 
+const Image = (props) => {
   return (
     <>
-    <Link to={{ pathname: "/work/" + props.eventName}} state={props}>
+    <Link to={{ pathname: "/work/" + this.props.type + "/" + this.props.eventName}} state={props}>
         <div className='project-cover'>
             <div className="cover-container">
                 <div className="cover-image-wrap w-full h-full relative">
                     <div className="cover-image relative">
-                        <div className="cover-image-normal" key={props.alt}>
+                        <div className="cover-image-normal" key={this.props.alt}>
                             {/* <img srcSet={props.imageUrl} alt={props.alt} loading="lazy" className='cover-img'/> */}
-                            <LazyLoadImage src={props.imageUrl} alt={props.alt} className='object-cover' />
+                            <LazyLoadImage src={this.props.imageUrl} alt={this.props.alt} className='object-cover' />
                         </div>
                     </div>
                 </div>
@@ -22,8 +22,8 @@ const Image = (props) => {
                 <div className="details-wrap">
                     <div className="details">
                         <div className="details-inner w-full p-[0%]">
-                               <div className="title-preserver-whitespace text-black-70" key={props.eventName}>
-                                    <p>{props.eventName}</p>
+                               <div className="title-preserver-whitespace text-black-70" key={this.props.eventName}>
+                                    <p>{this.props.eventName}</p>
                                </div>
                         </div>
                     </div>

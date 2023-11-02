@@ -31,7 +31,7 @@ const Work = () => {
 
                             <div className="image-collection-container md:-mt-[6.5rem] lg:grid-cols-2 lg:mt-0">
                                 {docs?.map(doc => (
-                                    <Image imageUrl={doc.imageUrl} key={doc.event_name} eventName={doc.event_name} alt={doc.event_name} description={doc.description}/>
+                                    <Image imageUrl={doc.imageUrl} key={doc.event_name} eventName={doc.event_name} alt={doc.event_name} description={doc.description} type="Photo"/>
                                 ))}
                             </div>
                         </section>
@@ -43,7 +43,7 @@ const Work = () => {
 
                             <div className="image-collection-container md:-mt-[6.5rem] lg:grid-cols-2 lg:mt-0">
                                 {videos?.map(video => (
-                                    <Image imageUrl={video.imageUrl} key={video.event_name} eventName={video.event_name} alt={video.event_name}/>
+                                    <Image imageUrl={video.imageUrl} key={video.event_name} eventName={video.event_name} alt={video.event_name} type="Video"/>
                                 ))}
                             </div>
 

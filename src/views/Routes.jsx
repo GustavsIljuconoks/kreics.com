@@ -15,7 +15,7 @@ const RoutesApp = () => {
                 <Route exact path="/about" element={ <About/> }/>
                 <Route exact path="/contact" element={ <Contact/> }/>
                 <Route exact path="/works" element={ <Work/> }/>
-                <Route exact path="/work/:project" element={ <Project/> }/>
+                <Route exact path="/work/:type/:project" element={ <Project/> }/>
             </Routes>
         </Router>
     )

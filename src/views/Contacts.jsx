@@ -45,7 +45,7 @@ const Contact = () => {
                                 </div>
                         
                                 <a id="mailSubmit" onClick={() => sendMail()}>
-                                <button className="rounded-full py-3 bg-orange w-full text-center text-white-ish" type="submit">Nosūtīt ziņu</button>                      
+                                    <button className="rounded-full py-3 bg-orange w-full text-center text-white-ish" type="submit">Nosūtīt ziņu</button>                      
                                 </a>
                         </div>
                     </div>
