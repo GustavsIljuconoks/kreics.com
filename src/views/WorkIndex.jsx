@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import NavBar from "../components/NavBar/NavBar";
 import Image from "../components/Image";
 import "../css/WorkIndex.css"
@@ -12,7 +12,7 @@ const Work = () => {
     const photoQuery = collection(db, "test/Photo/children");
     const videoQuery = collection(db, "test/Video/children");
     
-    const [docs, loading, error] = useCollectionData(photoQuery);
+    const [docs, loading] = useCollectionData(photoQuery);
     const [videos] = useCollectionData(videoQuery);
 
     return (
