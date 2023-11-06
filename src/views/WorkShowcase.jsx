@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useParams, useLocation } from 'react-router-dom';
 
 import NavBar from "../components/NavBar/NavBar";
+import ScrollButton from '../components/ScrollButton';
 
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { collection } from 'firebase/firestore';
@@ -17,19 +18,23 @@ import LightGallery from 'lightgallery/react';
 import 'lightgallery/css/lightgallery.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
-import ScrollButton from "../components/ScrollButton";
 
 const Project = () => {
-    const lightboxRef = useRef(null);
+	const lightboxRef = useRef(null);
 
-    const projectInfo = useParams();    
-    const location = useLocation();
-    const propsData = location.state;
+	const projectInfo = useParams();
+	const location = useLocation();
+	const propsData = location.state;
+	console.log(propsData);
 
-    const query = collection(db, `test/${projectInfo.type}/children/${projectInfo.project}/all_photos`);
-    const [docs, loading, error] = useCollectionData(query);
+	// TODO:
+	// Change project titles all lowercase
+	// Change field names for global use
+	// Refactor code for photo and video display
+	const query = collection(db,`test/${projectInfo.type}/children/${projectInfo.project}/all_photos`,);
+	const [docs, loading, error] = useCollectionData(query);
 
-    return (
+	return (
 		<>
 			<div
 				id="content"
@@ -38,7 +43,12 @@ const Project = () => {
 					<NavBar />
 
 					<div className="w-full lg:w-5/6 text-center">
-						<div className="project-module w-full h-[400px] bg-black-10 mb-8"></div>
+						<div className="project-module w-full bg-black-10 mb-8">
+							<img
+								src={propsData.thumbnail}
+								srcSet={propsData.thumbnail}
+							/>
+						</div>
 
 						<div className="description mb-32 p-6 text-start lg:mb-56 lg:p-0">
 							<h1 className="text-2xl font-bold mb-4">
@@ -48,13 +58,15 @@ const Project = () => {
 						</div>
 
 						<Masonry
-							breakpointCols={{ default: 3, 800: 1 }} className="flex gap-2 lg:w-33">
+							breakpointCols={{ default: 3, 800: 1 }}
+							className="flex gap-2 lg:w-33">
 							{loading && 'Loading...'}
 
 							{docs?.map((doc, idx) => (
 								<div key={Math.random()}>
 									<LazyLoadImage
 										src={doc.imageUrl}
+										srcSet={doc.imageUrl}
 										effect="blur"
 										className="my-4 hover:opacity-70 cursor-pointer"
 										onClick={() => {

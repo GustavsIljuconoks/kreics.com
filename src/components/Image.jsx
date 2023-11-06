@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
@@ -13,8 +12,7 @@ const Image = (props) => {
                 <div className="cover-image-wrap w-full h-full relative">
                     <div className="cover-image relative">
                         <div className="cover-image-normal" key={props.alt}>
-                            {/* <img srcSet={props.imageUrl} alt={props.alt} loading="lazy" className='cover-img'/> */}
-                            <LazyLoadImage src={props.imageUrl} alt={props.alt} className='object-cover' />
+                            <LazyLoadImage src={props.thumbnail} alt={props.alt} className='object-cover' />
                         </div>
                     </div>
                 </div>

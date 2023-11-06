@@ -66,8 +66,7 @@ const NavBar = (props) => {
 							<a
 								href="/about"
 								className="hidden lg:block">
-								{' '}
-								ABOUT ME{' '}
+								ABOUT ME
 							</a>
 						</li>
 
